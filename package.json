@@ -14,6 +14,7 @@
     "*.{js,jsx,cjs,mjs,ts,tsx,json,css,md,mdx}": "prettier --write"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.20.2",
     "drizzle-orm": "^0.44.0",
     "mysql2": "^3.14.1",
     "next": "15.3.2",
