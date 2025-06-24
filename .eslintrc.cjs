@@ -3,7 +3,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'perfectionist'],
-  extends: ['plugin:@next/next/recommended'],
+  extends: ['plugin:@next/next/recommended', 'plugin:storybook/recommended'],
   ignorePatterns: ['next.config.js'],
   parserOptions: {
     project: ['./tsconfig.json'],
