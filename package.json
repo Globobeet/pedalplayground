@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,cjs,mjs,ts,tsx}": "eslint --cache --fix",
@@ -15,14 +17,21 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.20.2",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "drizzle-orm": "^0.44.0",
     "mysql2": "^3.14.1",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
+    "@storybook/nextjs": "^9.0.13",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -38,10 +47,12 @@
     "eslint-plugin-perfectionist": "2.11.0",
     "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-storybook": "^9.0.13",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "storybook": "^9.0.13",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
