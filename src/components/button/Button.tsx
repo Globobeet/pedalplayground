@@ -37,7 +37,7 @@ const buttonVariants = cva(
         red: 'text-red-400 hover:bg-red-50 hover:text-red-400',
       },
       variant: {
-        primary: 'bg-[#5c62fc] hover:bg-[#2a32fb] text-white',
+        primary: 'bg-primary hover:bg-primary-hover text-white',
         secondary: 'bg-white hover:bg-gray-200 text-gray-700',
         ghost: 'bg-transparent',
         red: 'bg-[#bc0913] hover:bg-red-800 text-white',
