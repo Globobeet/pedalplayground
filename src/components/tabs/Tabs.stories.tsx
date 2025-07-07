@@ -34,9 +34,9 @@ export const Default: Story = {
     defaultValue: 'pedalboard',
     orientation: 'horizontal',
   },
-  render: ({ defaultValue, orientation }) => (
+  render: ({ ...args }) => (
     <div className="bg-[#201f22] p-4">
-      <Tabs defaultValue={defaultValue} orientation={orientation}>
+      <Tabs {...args}>
         <TabsList>
           <TabsTrigger value="pedalboard">Pedalboard</TabsTrigger>
           <TabsTrigger value="pedal">Pedal</TabsTrigger>
@@ -58,9 +58,9 @@ export const Vertical: Story = {
     defaultValue: 'pedalboard',
     orientation: 'vertical',
   },
-  render: ({ defaultValue, orientation }) => (
+  render: ({ ...args }) => (
     <div className="bg-[#201f22] p-4">
-      <Tabs defaultValue={defaultValue} orientation={orientation}>
+      <Tabs {...args}>
         <TabsList className="flex flex-col">
           <TabsTrigger value="pedalboard">Pedalboard</TabsTrigger>
           <TabsTrigger value="pedal">Pedal</TabsTrigger>

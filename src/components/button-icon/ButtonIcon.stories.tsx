@@ -79,12 +79,12 @@ export const Primary: Story = {
 };
 
 export const Variants: Story = {
-  render: ({ icon, size, ...args }) => (
+  render: ({ ...args }) => (
     <div className="flex flex-col gap-4">
-      <ButtonIcon icon={icon} {...args} variant="primary" size={size} />
-      <ButtonIcon icon={icon} {...args} variant="secondary" size={size} />
-      <ButtonIcon icon={icon} {...args} variant="ghost" size={size} />
-      <ButtonIcon icon={icon} {...args} variant="red" size={size} />
+      <ButtonIcon {...args} variant="primary" />
+      <ButtonIcon {...args} variant="secondary" />
+      <ButtonIcon {...args} variant="ghost" />
+      <ButtonIcon {...args} variant="red" />
     </div>
   ),
   args: {
@@ -94,12 +94,12 @@ export const Variants: Story = {
 };
 
 export const Sizes: Story = {
-  render: ({ icon, variant, ...args }) => (
+  render: ({ ...args }) => (
     <div className="flex flex-col gap-4">
-      <ButtonIcon icon={icon} variant={variant} size="sm" {...args} />
-      <ButtonIcon icon={icon} variant={variant} size="md" {...args} />
-      <ButtonIcon icon={icon} variant={variant} size="lg" {...args} />
-      <ButtonIcon icon={icon} variant={variant} size="xl" {...args} />
+      <ButtonIcon size="sm" {...args} />
+      <ButtonIcon size="md" {...args} />
+      <ButtonIcon size="lg" {...args} />
+      <ButtonIcon size="xl" {...args} />
     </div>
   ),
   args: {
@@ -109,13 +109,25 @@ export const Sizes: Story = {
 };
 
 export const Radiuses: Story = {
-  render: ({ icon, size, variant, ...args }) => (
+  render: ({ ...args }) => (
     <div className="flex flex-col gap-4">
-      <ButtonIcon icon={icon} size={size} variant={variant} rounded="none" {...args} />
-      <ButtonIcon icon={icon} size={size} variant={variant} rounded="sm" {...args} />
-      <ButtonIcon icon={icon} size={size} variant={variant} rounded="md" {...args} />
-      <ButtonIcon icon={icon} size={size} variant={variant} rounded="lg" {...args} />
-      <ButtonIcon icon={icon} size={size} variant={variant} rounded="full" {...args} />
+      <ButtonIcon
+        icon={args.icon}
+        size={args.size}
+        variant={args.variant}
+        rounded="none"
+        {...args}
+      />
+      <ButtonIcon rounded="sm" {...args} />
+      <ButtonIcon rounded="md" {...args} />
+      <ButtonIcon rounded="lg" {...args} />
+      <ButtonIcon
+        icon={args.icon}
+        size={args.size}
+        variant={args.variant}
+        rounded="full"
+        {...args}
+      />
     </div>
   ),
   args: {
@@ -126,11 +138,11 @@ export const Radiuses: Story = {
 };
 
 export const States: Story = {
-  render: ({ icon, size, variant, ...args }) => (
+  render: ({ ...args }) => (
     <div className="flex flex-col gap-4">
-      <ButtonIcon icon={icon} size={size} variant={variant} loading {...args} />
-      <ButtonIcon icon={icon} size={size} variant={variant} disabled {...args} />
-      <ButtonIcon icon={icon} size={size} variant={variant} fullWidth {...args} />
+      <ButtonIcon loading {...args} />
+      <ButtonIcon disabled {...args} />
+      <ButtonIcon fullWidth {...args} />
     </div>
   ),
   args: {
