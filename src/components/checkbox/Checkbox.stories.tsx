@@ -68,7 +68,7 @@ export const Default: Story = {
 
 export const Variants: Story = {
   args: { defaultChecked: false, size: 'md', rounded: 'md' },
-  render: (args) => (
+  render: ({ ...args }) => (
     <div className="flex gap-4">
       <label className="flex items-center gap-2">
         <Checkbox {...args} variant="primary" />
@@ -80,7 +80,7 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   args: { defaultChecked: true, variant: 'primary', rounded: 'md' },
-  render: (args) => (
+  render: ({ ...args }) => (
     <div className="flex items-center gap-4">
       <label className="flex items-center gap-2">
         <Checkbox {...args} size="sm" />
@@ -100,7 +100,7 @@ export const Sizes: Story = {
 
 export const RoundedCorners: Story = {
   args: { defaultChecked: true, variant: 'primary', size: 'md' },
-  render: (args) => (
+  render: ({ ...args }) => (
     <div className="flex items-center gap-4">
       <label className="flex items-center gap-2">
         <Checkbox {...args} rounded="none" />
@@ -128,7 +128,7 @@ export const RoundedCorners: Story = {
 
 export const States: Story = {
   args: { variant: 'primary', size: 'md', rounded: 'md' },
-  render: (args) => (
+  render: ({ ...args }) => (
     <div className="flex flex-col gap-4">
       <label className="flex items-center gap-2">
         <Checkbox {...args} defaultChecked={false} />

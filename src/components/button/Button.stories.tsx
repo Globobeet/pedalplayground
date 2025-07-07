@@ -88,21 +88,20 @@ export const Variants: Story = {
 export const Sizes: Story = {
   args: {
     variant: 'primary',
-    children: 'Button',
   },
-  render: ({ children, ...args }) => (
+  render: ({ ...args }) => (
     <div className="flex flex-col gap-4">
       <Button {...args} size="sm">
-        {children} Small
+        Button Small
       </Button>
       <Button {...args} size="md">
-        {children} Medium
+        Button Medium
       </Button>
       <Button {...args} size="lg">
-        {children} Large
+        Button Large
       </Button>
       <Button {...args} size="xl">
-        {children} XLarge
+        Button XLarge
       </Button>
     </div>
   ),
