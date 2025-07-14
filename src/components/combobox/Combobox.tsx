@@ -2,6 +2,7 @@
 
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { rankItem } from '@tanstack/match-sorter-utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 
@@ -72,19 +73,43 @@ export function Combobox({
 
   const selectedOption = allOptions.find((o) => o.id === selectedId);
 
-  const filtered = useMemo(() => {
-    if (!query.trim()) return options;
+  const filtered = useMemo<ComboboxData[]>(() => {
+    const q = query.trim();
 
-    const q = query.toLowerCase();
-    return options
-      .map((item) => {
-        if (isGroup(item)) {
-          const opts = item.options.filter((o) => o.label.toLowerCase().includes(q));
-          return opts.length ? { ...item, options: opts } : null;
+    if (!q) return options;
+
+    const result: ComboboxData[] = [];
+
+    for (const item of options) {
+      if (isGroup(item)) {
+        const groupRank = rankItem(item.groupLabel, q);
+        if (groupRank.passed) {
+          result.push(item);
+        } else {
+          const matched = item.options
+            .map((o) => {
+              const r = rankItem(o.label, q);
+              return r.passed ? { opt: o, rank: r.rankedValue } : null;
+            })
+            .filter(Boolean) as Array<{ opt: ComboOption; rank: number }>;
+
+          if (matched.length) {
+            matched.sort((a, b) => a.rank - b.rank);
+            result.push({
+              groupLabel: item.groupLabel,
+              options: matched.map((m) => m.opt),
+            });
+          }
         }
-        return item.label.toLowerCase().includes(q) ? item : null;
-      })
-      .filter(Boolean) as ComboboxData[];
+      } else {
+        const r = rankItem(item.label, q);
+        if (r.passed) {
+          result.push(item);
+        }
+      }
+    }
+
+    return result;
   }, [query, options]);
 
   const rows = useMemo(() => rowsFromData(filtered), [filtered]);

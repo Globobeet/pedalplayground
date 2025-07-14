@@ -45,7 +45,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  args: { placeholder: 'Select pedal…' },
+  args: { placeholder: 'Select pedal…', options: FLAT },
   render: ({ ...args }) => {
     const [value, setValue] = useState<string>('1');
     return <Combobox {...args} options={FLAT} value={value} onChange={setValue} />;
@@ -53,7 +53,7 @@ export const Playground: Story = {
 };
 
 export const WithGroups: Story = {
-  args: { placeholder: 'Choose effect…' },
+  args: { placeholder: 'Choose effect…', options: GROUPED },
   render: ({ ...args }) => {
     const [value, setValue] = useState<string>('k1');
     return <Combobox {...args} options={GROUPED} value={value} onChange={setValue} />;
