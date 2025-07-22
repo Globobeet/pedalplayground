@@ -68,6 +68,7 @@ export function Combobox({
 
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const allOptions = useMemo(() => options.flatMap((d) => (isGroup(d) ? d.options : d)), [options]);
 
@@ -159,10 +160,16 @@ export function Combobox({
           </button>
         </Dropdown.Trigger>
 
-        <Dropdown.Menu className="w-[var(--radix-dropdown-menu-trigger-width)]">
+        <Dropdown.Menu
+          className="w-[var(--radix-dropdown-menu-trigger-width)]"
+          onPointerMoveCapture={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <div className="px-3 pb-2">
             <input
               autoFocus
+              ref={inputRef}
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -213,6 +220,10 @@ export function Combobox({
                       closeOnSelect={false}
                       className={cx({ 'bg-gray-700': row.option.id === selectedId })}
                       onClick={() => onSelect(row.option.id)}
+                      onFocus={(e) => {
+                        e.preventDefault();
+                        inputRef.current?.focus();
+                      }}
                       style={style}
                     >
                       {row.option.label}
