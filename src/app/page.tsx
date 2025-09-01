@@ -1,3 +1,15 @@
+import Canvas from './_components/Canvas';
+import Header from './_components/Header';
+import Sidebar from './_components/Sidebar';
+
 export default function Home() {
-  return <div className="flex h-screen w-screen items-center justify-center uppercase">test</div>;
+  return (
+    <>
+      <Header />
+      <div className="relative flex flex-1 bg-gray-100">
+        <Sidebar />
+        <Canvas />
+      </div>
+    </>
+  );
 }
