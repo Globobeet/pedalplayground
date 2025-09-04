@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="relative flex flex-1 bg-gray-100">
+      <div className="bg-foreground relative flex flex-1">
         <Sidebar />
         <Canvas />
       </div>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from '@fa/classic/solid';
 
 import { Button, type ButtonProps } from './Button';
 

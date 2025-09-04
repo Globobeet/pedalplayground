@@ -48,7 +48,7 @@ function DrawerContent({
       <DrawerPrimitive.Content
         data-slot="drawer-content"
         className={cx(
-          'group/drawer-content bg-background fixed z-50 flex h-auto flex-col',
+          'group/drawer-content bg-background border-border fixed z-50 flex h-auto flex-col',
           'data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=top]:rounded-b-lg data-[vaul-drawer-direction=top]:border-b',
           'data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=bottom]:rounded-t-lg data-[vaul-drawer-direction=bottom]:border-t',
           'data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=right]:border-l data-[vaul-drawer-direction=right]:sm:max-w-sm',
@@ -58,7 +58,7 @@ function DrawerContent({
         {...props}
       >
         <div className="flex justify-center py-2">
-          <div className="h-1 w-[100px] rounded-full bg-gray-600 transition-colors hover:bg-gray-500" />
+          <div className="bg-secondary h-1 w-[100px] rounded-full" />
         </div>
         <DrawerTitle className="hidden">Mobile Sidebar</DrawerTitle>
         <DrawerDescription className="hidden">Mobile Sidebar</DrawerDescription>

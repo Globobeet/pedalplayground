@@ -1,4 +1,4 @@
-import { faCheck, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faMinus } from '@fa/classic/solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cva, type VariantProps } from 'class-variance-authority';

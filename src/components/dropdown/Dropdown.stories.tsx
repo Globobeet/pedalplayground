@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { faFileExport, faSave } from '@fortawesome/free-solid-svg-icons';
+import { faFileExport, faSave } from '@fa/classic/solid';
 import React from 'react';
 
 import { Button } from '../button';

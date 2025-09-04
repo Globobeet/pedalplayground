@@ -1,4 +1,4 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fa/classic/solid';
 
 import { ButtonIcon } from '@/components/button-icon';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/drawer';
@@ -8,7 +8,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="m-2.5 mr-0 w-[304px] rounded-lg border border-gray-300 bg-white shadow-xs max-lg:hidden">
+      <aside className="bg-background border-border shadow-shadow m-2.5 mr-0 w-[304px] rounded-lg border max-lg:hidden">
         {sidebarContent}
       </aside>
 

@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@fa/*": ["./node_modules/@awesome.me/kit-f79eff46f8/icons/modules/*"]
     }
   },
   "include": [

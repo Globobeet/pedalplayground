@@ -1,7 +1,7 @@
 import type { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core';
 import type { ButtonHTMLAttributes, ForwardedRef } from 'react';
 
-import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { faCircleNotch } from '@fa/classic/solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { forwardRef } from 'react';
