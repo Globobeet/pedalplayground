@@ -1,7 +1,7 @@
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee } from '@fa/classic/solid';
 
 import { ButtonIcon, type ButtonIconProps } from './ButtonIcon';
 

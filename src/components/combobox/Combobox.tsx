@@ -1,6 +1,6 @@
 'use client';
 
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown } from '@fa/classic/solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { rankItem } from '@tanstack/match-sorter-utils';
 import { useVirtualizer } from '@tanstack/react-virtual';
