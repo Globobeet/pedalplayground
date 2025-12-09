@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import '@xyflow/react/dist/style.css';
 
 import { inter } from '@/styles/fonts';
 import '@/styles/globals.css';
