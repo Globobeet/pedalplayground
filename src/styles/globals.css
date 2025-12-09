@@ -37,3 +37,32 @@
     @apply bg-background text-secondary;
   }
 }
+
+/* ReactFlow styles */
+.react-flow__node {
+  @apply transition-colors;
+}
+
+.react-flow__edge {
+  @apply transition-colors;
+}
+
+.dark .react-flow__background {
+  background-color: theme('colors.background');
+}
+
+.dark .react-flow__minimap {
+  background-color: theme('colors.foreground');
+}
+
+.dark .react-flow__controls {
+  @apply border-border;
+}
+
+.dark .react-flow__controls button {
+  @apply border-border bg-background text-secondary;
+}
+
+.dark .react-flow__controls button:hover {
+  @apply bg-foreground;
+}
