@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -19,8 +23,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@fa/*": ["./node_modules/@awesome.me/kit-f79eff46f8/icons/modules/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@fa/*": [
+        "./node_modules/@awesome.me/kit-f79eff46f8/icons/modules/*"
+      ]
     }
   },
   "include": [
@@ -31,7 +39,10 @@
     "**/*.mjs",
     ".next/types/**/*.ts",
     ".eslintrc.cjs",
-    "postcss.config.mjs"
+    "postcss.config.mjs",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
