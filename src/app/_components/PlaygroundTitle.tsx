@@ -72,18 +72,18 @@ export default function PlaygroundTitle() {
               icon={faXmark}
               size="sm"
               variant="icon"
-              iconClassName="text-red-500 hover:text-red-500/80"
+              iconClassName="text-gray-500 hover:text-gray-500/80"
               onMouseDown={(e) => e.preventDefault()}
               onClick={cancel}
             />
-            <ButtonIcon
+            {/* <ButtonIcon
               icon={faCheck}
               size="sm"
               variant="icon"
               iconClassName="text-green-500 hover:text-green-500/80"
               onMouseDown={(e) => e.preventDefault()}
               onClick={submit}
-            />
+            /> */}
           </>
         ) : (
           <button onClick={startEditing} className="flex min-w-0 cursor-pointer items-center gap-1">
