@@ -18,7 +18,7 @@ export function Menu({
         align={align}
         loop
         className={cx(
-          'z-50 min-w-max rounded-lg bg-[#201f22] py-3 shadow-lg',
+          'bg-background z-50 min-w-max rounded-lg py-3 shadow-lg',
           'data-[side=bottom]:animate-slide-up-fade data-[side=top]:animate-slide-down-fade',
           className,
         )}

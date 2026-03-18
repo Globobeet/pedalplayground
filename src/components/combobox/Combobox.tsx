@@ -23,8 +23,8 @@ export type ComboGroup<V = string> = {
 
 export type ComboboxData<V = string> = ComboOption<V> | ComboGroup<V>;
 
-export interface ComboboxProps {
-  options: ComboboxData[];
+export interface ComboboxProps<V = string> {
+  options: ComboboxData<V>[];
   value?: string;
   defaultValue?: string;
   onChange?: (id: string) => void;
@@ -54,14 +54,14 @@ const rowsFromData = <V,>(data: ComboboxData<V>[]): Row<V>[] => {
   return rows;
 };
 
-export function Combobox({
+export function Combobox<V = string>({
   options,
   value,
   defaultValue,
   onChange,
   placeholder = 'Select…',
   className,
-}: ComboboxProps) {
+}: ComboboxProps<V>) {
   const isControlled = value !== undefined;
   const [internalId, setInternalId] = useState<string | undefined>(defaultValue);
   const selectedId = isControlled ? value : internalId;
@@ -74,12 +74,12 @@ export function Combobox({
 
   const selectedOption = allOptions.find((o) => o.id === selectedId);
 
-  const filtered = useMemo<ComboboxData[]>(() => {
+  const filtered = useMemo<ComboboxData<V>[]>(() => {
     const q = query.trim();
 
     if (!q) return options;
 
-    const result: ComboboxData[] = [];
+    const result: ComboboxData<V>[] = [];
 
     for (const item of options) {
       if (isGroup(item)) {
@@ -92,7 +92,7 @@ export function Combobox({
               const r = rankItem(o.label, q);
               return r.passed ? { opt: o, rank: r.rankedValue } : null;
             })
-            .filter(Boolean) as Array<{ opt: ComboOption; rank: number }>;
+            .filter(Boolean) as Array<{ opt: ComboOption<V>; rank: number }>;
 
           if (matched.length) {
             matched.sort((a, b) => a.rank - b.rank);
@@ -148,7 +148,7 @@ export function Combobox({
         <Dropdown.Trigger>
           <button
             type="button"
-            className="flex w-full items-center justify-between gap-2 rounded border border-gray-700 bg-[#1b1a1d] px-3 py-2 text-sm hover:border-gray-600"
+            className="bg-foreground flex w-full items-center justify-between gap-2 rounded border border-gray-700 px-3 py-2 text-sm hover:border-gray-600"
           >
             <span className={cx({ 'text-gray-400': !selectedOption })}>
               {selectedOption ? selectedOption.label : placeholder}
@@ -166,7 +166,7 @@ export function Combobox({
             e.stopPropagation();
           }}
         >
-          <div className="px-3 pb-2">
+          <div className="pb-2">
             <input
               autoFocus
               ref={inputRef}
@@ -174,7 +174,7 @@ export function Combobox({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search…"
-              className="w-full rounded border border-gray-700 bg-[#1b1a1d] px-2 py-1 text-sm"
+              className="bg-foreground w-full rounded border border-gray-700 px-2 py-1 text-sm"
             />
           </div>
 
@@ -218,7 +218,7 @@ export function Combobox({
                     <Dropdown.MenuItem
                       key={row.option.id}
                       closeOnSelect={false}
-                      className={cx({ 'bg-gray-700': row.option.id === selectedId })}
+                      className={cx({ 'bg-foreground': row.option.id === selectedId })}
                       onClick={() => onSelect(row.option.id)}
                       onFocus={(e) => {
                         e.preventDefault();
@@ -233,7 +233,7 @@ export function Combobox({
               </div>
             </div>
           ) : (
-            <div className="px-4 py-2 text-sm text-gray-400">Nothing found</div>
+            <div className="px-4 py-2 text-sm text-gray-400">No results</div>
           )}
         </Dropdown.Menu>
       </Dropdown>

@@ -1,12 +1,21 @@
 import { faPlus } from '@fa/classic/solid';
 
+import { getPedalsGroupedByBrand } from '@/app/api/pedals';
 import { ButtonIcon } from '@/components/button-icon';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/drawer';
 
+import AddPedalSection from './AddPedalSection';
 import PlaygroundTitle from './PlaygroundTitle';
 
-export default function Sidebar() {
-  const sidebarContent = <PlaygroundTitle />;
+export default async function Sidebar() {
+  const options = await getPedalsGroupedByBrand();
+
+  const sidebarContent = (
+    <>
+      <PlaygroundTitle />
+      <AddPedalSection options={options} />
+    </>
+  );
 
   return (
     <>

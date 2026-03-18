@@ -2,6 +2,8 @@ import Canvas from './_components/Canvas';
 import Header from './_components/Header';
 import Sidebar from './_components/Sidebar';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   return (
     <>
