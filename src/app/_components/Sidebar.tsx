@@ -3,8 +3,10 @@ import { faPlus } from '@fa/classic/solid';
 import { ButtonIcon } from '@/components/button-icon';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/drawer';
 
+import PlaygroundTitle from './PlaygroundTitle';
+
 export default function Sidebar() {
-  const sidebarContent = <div>sidebar content</div>;
+  const sidebarContent = <PlaygroundTitle />;
 
   return (
     <>

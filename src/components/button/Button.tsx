@@ -9,7 +9,7 @@ import { forwardRef } from 'react';
 import { cx } from '@/utils';
 
 const buttonVariants = cva(
-  'transition-all w-fit inline-flex items-center justify-center h-fit font-bold duration-150 disabled:pointer-events-none disabled:opacity-50 text-base active:scale-95',
+  'transition-all w-fit inline-flex items-center justify-center h-fit font-bold duration-150 disabled:pointer-events-none disabled:opacity-50 text-base active:scale-95 cursor-pointer',
   {
     variants: {
       fullWidth: {
@@ -40,6 +40,7 @@ const buttonVariants = cva(
         primary: 'bg-primary hover:bg-primary-hover text-white',
         secondary: 'bg-white hover:bg-gray-200 text-gray-700',
         ghost: 'bg-transparent',
+        icon: 'bg-transparent text-secondary hover:bg-transparent hover:text-secondary/80',
         red: 'bg-[#bc0913] hover:bg-red-800 text-white',
       },
     },
