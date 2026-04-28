@@ -42,7 +42,7 @@ export function MenuItem<E extends React.ElementType = 'div'>({
       <Component
         className={cx(
           'w-full cursor-pointer px-4 py-1.5 text-sm leading-none font-medium transition-colors',
-          'flex items-center gap-3 hover:bg-gray-700 focus:bg-gray-700',
+          'hover:bg-foreground focus:bg-foreground flex items-center gap-3',
           { 'flex-row-reverse': iconPlacement === 'right' },
           className,
         )}
