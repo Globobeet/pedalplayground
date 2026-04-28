@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 
-export interface Pedal {
+export interface BoardItem {
   instanceId: string;
-  pedalId: number;
+  itemId: number;
+  type: 'pedal' | 'pedalboard';
   name: string;
   brandName: string;
   imageUrl: string;
@@ -13,34 +14,36 @@ export interface Pedal {
   rotation: number;
 }
 
+export type NewBoardItem = Omit<BoardItem, 'instanceId' | 'positionX' | 'positionY' | 'rotation'>;
+
 export interface Playground {
   name: string;
-  pedals: Pedal[];
+  items: BoardItem[];
 }
 
 const BLANK_PLAYGROUND: Playground = {
   name: '',
-  pedals: [],
+  items: [],
 };
 
 interface PlaygroundStore {
   playground: Playground;
   updateName: (name: string) => void;
-  addPedal: (pedal: Omit<Pedal, 'instanceId' | 'positionX' | 'positionY' | 'rotation'>) => void;
-  removePedal: (instanceId: string) => void;
+  addItem: (item: NewBoardItem) => void;
+  removeItem: (instanceId: string) => void;
 }
 
 export const usePlaygroundStore = create<PlaygroundStore>((set) => ({
   playground: { ...BLANK_PLAYGROUND },
   updateName: (name) => set((state) => ({ playground: { ...state.playground, name } })),
-  addPedal: (pedal) =>
+  addItem: (item) =>
     set((state) => ({
       playground: {
         ...state.playground,
-        pedals: [
-          ...state.playground.pedals,
+        items: [
+          ...state.playground.items,
           {
-            ...pedal,
+            ...item,
             instanceId: crypto.randomUUID(),
             positionX: 0,
             positionY: 0,
@@ -49,11 +52,11 @@ export const usePlaygroundStore = create<PlaygroundStore>((set) => ({
         ],
       },
     })),
-  removePedal: (instanceId) =>
+  removeItem: (instanceId) =>
     set((state) => ({
       playground: {
         ...state.playground,
-        pedals: state.playground.pedals.filter((p) => p.instanceId !== instanceId),
+        items: state.playground.items.filter((i) => i.instanceId !== instanceId),
       },
     })),
 }));

@@ -9,11 +9,11 @@ import { usePlaygroundStore } from '@/store/playground';
 
 import SidebarSection from './SidebarSection';
 
-interface AddPedalSectionProps {
+interface AddPedalboardSectionProps {
   options: ComboGroup<ItemDetail>[];
 }
 
-export default function AddPedalSection({ options }: AddPedalSectionProps) {
+export default function AddPedalboardSection({ options }: AddPedalboardSectionProps) {
   const addItem = usePlaygroundStore((s) => s.addItem);
   const [selectedId, setSelectedId] = useState<string>();
 
@@ -28,19 +28,19 @@ export default function AddPedalSection({ options }: AddPedalSectionProps) {
 
     const { id, ...rest } = option.value;
 
-    addItem({ itemId: id, type: 'pedal', ...rest });
+    addItem({ itemId: id, type: 'pedalboard', ...rest });
   };
 
   return (
     <SidebarSection>
-      <SidebarSection.Title>Add a Pedal</SidebarSection.Title>
+      <SidebarSection.Title>Add a Pedalboard</SidebarSection.Title>
       <SidebarSection.Combobox
         options={options}
         onChange={setSelectedId}
-        placeholder="Search for pedals"
+        placeholder="Search for pedalboards"
       />
       <SidebarSection.Button disabled={!selectedId} onClick={handleAdd}>
-        Add a Pedal
+        Add a Pedalboard
       </SidebarSection.Button>
     </SidebarSection>
   );

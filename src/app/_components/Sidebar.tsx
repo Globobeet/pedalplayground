@@ -1,19 +1,24 @@
 import { faPlus } from '@fa/classic/solid';
 
-import { getPedalsGroupedByBrand } from '@/app/api/pedals';
+import { getPedalboardsGroupedByBrand, getPedalsGroupedByBrand } from '@/app/api/pedals';
 import { ButtonIcon } from '@/components/button-icon';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/drawer';
 
 import AddPedalSection from './AddPedalSection';
+import AddPedalboardSection from './AddPedalboardSection';
 import PlaygroundTitle from './PlaygroundTitle';
 
 export default async function Sidebar() {
-  const options = await getPedalsGroupedByBrand();
+  const [pedalOptions, pedalboardOptions] = await Promise.all([
+    getPedalsGroupedByBrand(),
+    getPedalboardsGroupedByBrand(),
+  ]);
 
   const sidebarContent = (
     <>
       <PlaygroundTitle />
-      <AddPedalSection options={options} />
+      <AddPedalboardSection options={pedalboardOptions} />
+      <AddPedalSection options={pedalOptions} />
     </>
   );
 
